@@ -1,6 +1,5 @@
 package com.app;
 
-import com.app.utils.TableBuilder;
 import com.app.utils.TableGenerator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -25,7 +24,7 @@ public class DebutServiceTest implements TableGenerator{
 
         Service service = new Service();
 
-        Restaurant restaurant = new Restaurant(listeTables);
+        Restaurant restaurant = new RestaurantBuilder().setTables(listeTables).createRestaurant();
 
         // QUAND le service commence
 
