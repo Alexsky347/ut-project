@@ -18,6 +18,11 @@
             <artifactId>hamcrest</artifactId>
             <version>2.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.valid4j</groupId>
+            <artifactId>valid4j</artifactId>
+            <version>0.5.0</version>
+        </dependency>
     </dependencies>
 
     <properties>
