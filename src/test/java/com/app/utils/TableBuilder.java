@@ -11,6 +11,6 @@ public class TableBuilder {
     }
 
     public Table createTable() {
-        return new Table(numero);
+        return new Table();
     }
 }

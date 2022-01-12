@@ -18,7 +18,7 @@ public class InstallationClientTest {
         var table = new Table();
         var client = new Client();
 
-        var restaurant = new Restaurant(table);
+        /*var restaurant = new Restaurant(table);
         restaurant.DébuterService();
 
         // QUAND un client est affecté à une table
@@ -28,5 +28,7 @@ public class InstallationClientTest {
         var tablesLibres = restaurant.TablesesLibres;
 
         assertThat(null, is(tablesLibres));
+
+         */
     }
 }
