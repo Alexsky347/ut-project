@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Restaurant {
-    public Object TablesesLibres;
+    ArrayList<Table> TablesLibres;
     ArrayList<Table> tablesPrises;
 
     public Restaurant( ArrayList<Table> tables) {

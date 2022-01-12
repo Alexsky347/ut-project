@@ -6,4 +6,9 @@ public class Table {
 
     public void AffecterA(Client client) {
     }
+
+    public void LibererA() {
+
+    }
 }
+
