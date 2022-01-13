@@ -1,16 +1,8 @@
 package com.app;
 
-import com.app.repository.TableRepository;
-import org.json.simple.parser.ParseException;
-
-import java.io.IOException;
-import java.util.ArrayList;
-
-
-public class Table extends TableRepository {
+public class Table{
 
     private String numero;
-
 
     public Table(){}
 
@@ -22,12 +14,6 @@ public class Table extends TableRepository {
         return numero;
     }
 
-    public void AffecterA(Client client) {
-
-    }
-    public ArrayList<Object> getAllTables() throws IOException, ParseException {
-        return this.getAll();
-    }
-
+    public void affecterA(Client client) {}
 
 }
