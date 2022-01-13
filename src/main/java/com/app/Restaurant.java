@@ -8,6 +8,10 @@ public class Restaurant {
     ArrayList<Table> tablesPrises;
 
     public Restaurant() {}
+    
+    public Restaurant(Object tablesLibres) {
+        this.tablesLibres = tablesLibres;
+    }
 
     public Object getTablesLibres() {
         return tablesLibres;
@@ -35,5 +39,8 @@ public class Restaurant {
 
     public ArrayList<Table> getTablesPrises(){
         return this.tablesPrises;
+    }
+
+    public void DébuterService() {
     }
 }

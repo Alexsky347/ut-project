@@ -58,14 +58,6 @@ class DebutServiceTest implements TableGenerator, ServeurGenerator {
         Serveur service = new ServeurBuilder().createServeur();
         service.setTable(this.listeTables.get(0));
         MaitreHotel maitreHotel = new MaitreHotel();
-//        Table t = new Table();
-//        System.out.println(t.getAll());
-//        HashMap<String, String> hmap = new HashMap<String, String>();
-//        System.out.println(t.create(new Table("33")));
-//        System.out.println("result findById => " + t.findById("2"));
-//        System.out.println("result => " + t.update("1", new Table("55")));
-//        System.out.println("result => " + t.delete("1"));
-//        System.out.println("result => " + t.findById("10"));
 
 //        QUAND le service débute
         restaurant.débuterService();

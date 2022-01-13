@@ -16,4 +16,9 @@ public class Table{
 
     public void affecterA(Client client) {}
 
+    public void AffecterA(Client client) {
+    }
+
+    public void LibererA() {
+    }
 }
