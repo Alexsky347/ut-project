@@ -1,4 +1,4 @@
-package com.app.repository;
+package com.app.controller;
 
 import com.app.Table;
 import org.json.simple.JSONArray;
@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicReference;
 
 
-public class TableRepository {
+public class TableController {
 
     private static final String FILE_PATH = "src/main/resources/json/table.json";
 
