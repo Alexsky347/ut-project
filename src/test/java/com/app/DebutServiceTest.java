@@ -1,38 +1,46 @@
 package com.app;
 
-import com.app.utils.TableBuilder;
+import com.app.utils.ServeurBuilder;
+import com.app.utils.ServeurGenerator;
 import com.app.utils.TableGenerator;
+import org.json.simple.parser.ParseException;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import java.io.IOException;
+import java.util.*;
 import static org.valid4j.Assertive.*;
+import static org.valid4j.Validation.*;
 
-public class DebutServiceTest implements TableGenerator{
+class DebutServiceTest implements TableGenerator, ServeurGenerator {
 
-//https://www.baeldung.com/intellij-idea-java-builders
+    private ArrayList<Table> listeTables;
+    private ArrayList<Serveur> listeServeurs;
+    Restaurant restaurant;
+    MaitreHotel maitreHotel;
+
+    @BeforeEach
+    void setUp() {
+        listeTables = generateTables(3);
+        listeServeurs = generateServices(2);
+        restaurant = new Restaurant();
+        maitreHotel = new MaitreHotel();
+    }
+
     @Test
     @DisplayName("ÉTANT DONNE un restaurant ayant 3 tables" +
             "QUAND le service commence" +
             "ALORS elles sont toutes affectées au Maître d'Hôtel")
-    public void tablesAffectees() {
+    void tablesAffectees() {
 
         // ÉTANT DONNE un restaurant ayant 3 tables
-        ArrayList<Table> listeTables = generate(3);
-
-        Service service = new Service();
-
-        Restaurant restaurant = new Restaurant(listeTables);
+        listeServeurs.get(0).setTable(this.listeTables.get(0));
+        restaurant.setTablesPrises(listeTables);
 
         // QUAND le service commence
-
-        service.commence();
+        restaurant.débuterService();
 
         // ALORS elles sont toutes affectées au Maître d'Hôtel
-        MaitreHotel maitreHotel = new MaitreHotel();
         maitreHotel.tablesAffectees(restaurant.getTablesPrises());
 
         ensure(restaurant.getTablesPrises() == maitreHotel.getTablesAffectees());
@@ -43,14 +51,24 @@ public class DebutServiceTest implements TableGenerator{
     @DisplayName("ÉTANT DONNÉ un restaurant ayant 3 tables dont une affectée à un serveur" +
             "QUAND le service débute" +
             "ALORS la table éditée est affectée au serveur et les deux autres au maître d'hôtel")
-    public void tableEditee() {
+    void tableEditee() throws IOException, ParseException {
 
 //        ÉTANT DONNÉ un restaurant ayant 3 tables dont une affectée à un serveur
+        restaurant.setTablesPrises(listeTables);
+        Serveur service = new ServeurBuilder().createServeur();
+        service.setTable(this.listeTables.get(0));
+        MaitreHotel maitreHotel = new MaitreHotel();
 
 //        QUAND le service débute
+        restaurant.débuterService();
 
 //        ALORS la table éditée est affectée au serveur et les deux autres au maître d'hôtel
+        ArrayList<Table> listeMaitreHotel = new ArrayList<Table>();
+        listeMaitreHotel.add(listeTables.get(1));
+        listeMaitreHotel.add(listeTables.get(2));
+        maitreHotel.tablesAffectees(listeMaitreHotel);
 
+        ensure(maitreHotel.getTablesAffectees().size() == 2);
 
     }
 
@@ -58,15 +76,17 @@ public class DebutServiceTest implements TableGenerator{
     @DisplayName("ÉTANT DONNÉ un restaurant ayant 3 tables dont une affectée à un serveur" +
             "QUAND le service débute" +
             "ALORS il n'est pas possible de modifier le serveur affecté à la table")
-    public void ImpossibleModifierServeur() {
+    void ImpossibleModifierServeur() {
 
 //        ÉTANT DONNÉ un restaurant ayant 3 tables dont une affectée à un serveur
+        restaurant.setTablesPrises(listeTables);
+        listeServeurs.get(0).setTable(this.listeTables.get(0));
 
 //        QUAND le service débute
+        restaurant.débuterService();
 
 //        ALORS il n'est pas possible de modifier le serveur affecté à la table
-
-
+        ensure( listeServeurs.get(0).getTables().size() == 1);
     }
 
     @Test
@@ -75,15 +95,20 @@ public class DebutServiceTest implements TableGenerator{
             "QUAND le service se termine" +
             "ET qu'une table est affectée à un serveur" +
             "ALORS la table éditée est affectée au serveur et les deux autres au maître d'hôtel")
-    public void tableEditeeAffecteeServeurEtMaitreHotel() {
+    void tableEditeeAffecteeServeurEtMaitreHotel() {
 
 //        ÉTANT DONNÉ un restaurant ayant 3 tables dont une affectée à un serveur
+        restaurant.setTablesPrises(listeTables);
+        listeServeurs.get(0).setTable(this.listeTables.get(0));
 
 //        ET ayant débuté son service
+        listeServeurs.get(0).débuterService();
 
 //        QUAND le service se termine
+        listeServeurs.get(0).finirService();
 
 //        ET qu'une table est affectée à un serveur
+
 
 //        ALORS la table éditée est affectée au serveur et les deux autres au maître d'hôtel
 

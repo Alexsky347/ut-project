@@ -20,7 +20,7 @@ public class InstallationClientTest implements TableGenerator {
             "ALORS cette table n'est plus sur la liste des tables libres du restaurant")
     public void InstallationClient_RetireLaTable() {
         // ÉTANT DONNE une table dans un restaurant ayant débuté son service
-        ArrayList<Table> listeTables = generate(1);
+        ArrayList<Table> listeTables = generateTables(1);
         var client = new Client();
 
         var restaurant = new Restaurant(listeTables);
@@ -30,7 +30,7 @@ public class InstallationClientTest implements TableGenerator {
         listeTables.get(0).AffecterA(client);
 
         // ALORS cette table n'est plus sur la liste des tables libres du restaurant
-        var tablesPrises = restaurant.TablesPrises;
+        var tablesPrises = restaurant.getTablesPrises();
 
         assertThat(tablesPrises, is(tablesPrises));
 
@@ -44,7 +44,7 @@ public class InstallationClientTest implements TableGenerator {
             "ALORS cette table apparaît sur la liste des tables libres du restaurant")
     public void DésaffectationTable() {
         //ÉTANT DONNE une table occupée par un client
-        ArrayList<Table> listeTables = generate(1);
+        ArrayList<Table> listeTables = generateTables(1);
         var restaurant = new Restaurant(listeTables);
         restaurant.DébuterService();
         var client = new Client();
@@ -54,7 +54,7 @@ public class InstallationClientTest implements TableGenerator {
         listeTables.get(0).LibererA();
 
         // ALORS cette table apparaît sur la liste des tables libres du restaurant
-        var tablesLibres = restaurant.TablesLibres;
+        var tablesLibres = restaurant.getTablesPrises();
 
         assertThat(tablesLibres, is(tablesLibres));
     }

@@ -1,14 +1,17 @@
 package com.app;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 public class Serveur {
 
-    private final List<CommandeNourriture> commandesPrises = new ArrayList<CommandeNourriture>();
 
+    private ArrayList<Table> tables = new ArrayList<>();
     private String nom;
     private double salaire;
+    public Serveur(){}
+
 
     public Serveur(String nom, double salaire)
     {
@@ -16,12 +19,23 @@ public class Serveur {
         this.salaire = salaire;
     }
 
-    public void PrendreCommande(CommandeNourriture commande)
-    {
-
+    public ArrayList<Table> getTables() {
+        return tables;
     }
 
-    public void PrendreCommande(CommandeBoissons commande)
-    {
+    public void setTables(ArrayList<Table> tables) {
+        this.tables = tables;
     }
+
+    public void setTable(Table table) {
+        this.tables.add(table);
+    }
+
+    public void débuterService() {
+        System.out.println("le service du serveur commence");
+    }
+    public void finirService() {
+        System.out.println("le service du serveur est terminé");
+    }
+
 }
