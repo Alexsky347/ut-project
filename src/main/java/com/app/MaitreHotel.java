@@ -5,7 +5,7 @@ import java.util.List;
 
 public class MaitreHotel {
 
-    MaitreHotel(){}
+    public MaitreHotel(){}
 
     ArrayList<Table> tablesAffectees;
 

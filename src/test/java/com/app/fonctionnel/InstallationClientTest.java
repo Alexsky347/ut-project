@@ -1,6 +1,8 @@
-package com.app;
+package com.app.fonctionnel;
 
 
+import com.app.Client;
+import com.app.Table;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.hamcrest.Matchers.is;

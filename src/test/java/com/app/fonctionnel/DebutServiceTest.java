@@ -1,5 +1,9 @@
-package com.app;
+package com.app.fonctionnel;
 
+import com.app.MaitreHotel;
+import com.app.Restaurant;
+import com.app.Serveur;
+import com.app.Table;
 import com.app.utils.ServeurBuilder;
 import com.app.utils.ServeurGenerator;
 import com.app.utils.TableGenerator;
