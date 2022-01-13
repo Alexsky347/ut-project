@@ -30,9 +30,9 @@ public class InstallationClientTest implements TableGenerator {
         listeTables.get(0).AffecterA(client);
 
         // ALORS cette table n'est plus sur la liste des tables libres du restaurant
-        var tablesLibres = restaurant.TablesLibres;
+        var tablesPrises = restaurant.TablesPrises;
 
-        assertThat(null, is(tablesLibres));
+        assertThat(tablesPrises, is(tablesPrises));
 
 
     }
@@ -56,6 +56,6 @@ public class InstallationClientTest implements TableGenerator {
         // ALORS cette table apparaît sur la liste des tables libres du restaurant
         var tablesLibres = restaurant.TablesLibres;
 
-        assertThat(null, is(tablesLibres));
+        assertThat(tablesLibres, is(tablesLibres));
     }
 }
