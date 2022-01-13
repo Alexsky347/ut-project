@@ -1,15 +1,22 @@
 package com.app.controller;
 
+import com.app.Table;
+import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.io.IOException;
+import static org.valid4j.Assertive.*;
+import static org.valid4j.Validation.*;
 
 class TableControllerTest {
 
+    TableController tableController;
+
     @BeforeEach
     void setUp() {
+        tableController = new TableController();
     }
 
     @AfterEach
@@ -17,7 +24,8 @@ class TableControllerTest {
     }
 
     @Test
-    void getAll() {
+    void getAll() throws IOException, ParseException {
+        ensure(tableController.getAll().size() == 4);
     }
 
     @Test
@@ -25,7 +33,8 @@ class TableControllerTest {
     }
 
     @Test
-    void create() {
+    void create() throws IOException {
+        tableController.create(new Table("654"));
     }
 
     @Test
