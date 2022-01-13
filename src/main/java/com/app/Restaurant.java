@@ -4,21 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Restaurant {
-    public Object TablesesLibres;
-    ArrayList<Table> tablesPrises;
+    ArrayList<Table> TablesLibres;
+    ArrayList<Table> TablesPrises;
 
     public Restaurant( ArrayList<Table> tables) {
-        this.tablesPrises = tables;
+        this.TablesPrises = tables;
     }
 
     public void DébuterService() {
     }
 
     public void ajouteTable(Table table) {
-        tablesPrises.add(table);
+        TablesPrises.add(table);
     }
 
     public ArrayList<Table> getTablesPrises(){
-        return this.tablesPrises;
+        return this.TablesPrises;
     }
 }
