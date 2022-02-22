@@ -1,6 +1,7 @@
-package com.app.controller;
+package com.app.fonctionnel;
 
 import com.app.Table;
+import com.app.controller.TableController;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.junit.jupiter.api.AfterEach;

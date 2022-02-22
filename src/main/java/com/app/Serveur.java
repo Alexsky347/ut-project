@@ -16,12 +16,13 @@ public class Serveur {
         this.salaire = salaire;
     }
 
-    public void PrendreCommande(CommandeNourriture commande)
+    public boolean PrendreCommandeNourriture(CommandeNourriture commande)
     {
-
+        return true;
     }
 
-    public void PrendreCommande(CommandeBoissons commande)
+    public boolean PrendreCommandeBoisson(CommandeBoissons commande)
     {
+        return true;
     }
 }

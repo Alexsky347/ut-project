@@ -7,6 +7,7 @@ public class MaitreHotel {
     ArrayList<Table> tablesAffectees;
 
     public void tablesAffectees(ArrayList<Table> tablesPrises) {
+
         this.tablesAffectees = tablesPrises;
     }
     public ArrayList<Table> getTablesAffectees(){

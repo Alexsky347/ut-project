@@ -19,7 +19,8 @@ public class Table {
     }
 
 
-    public void AffecterA(Client client) {
+    public boolean AffecterA(Client client) {
+        return true;
     }
 
     public void LibererA() {
